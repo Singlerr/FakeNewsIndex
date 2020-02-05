@@ -16,6 +16,7 @@
             document.getElementById("med").hidden = true;
             document.getElementById("high").hidden = true;
             k = parseInt(localStorage.getItem("m"));
+            alert(k);
             if(k >= 5 && k<=6){
                 document.getElementById("low").hidden = false;
             }else if(k>=3 && k<=4){
@@ -23,11 +24,12 @@
             }else if(k<=2){
                 document.getElementById("low").hidden = false;
             }
+
         }
         function add(company,result){
-            row = document.all("result").insertRow();
+            var row = document.all("result").insertRow();
             rr = row.insertCell();
-            rr.innerHTML="<tr><td>"+company+"</td><td>"+result+"</td></tr>";
+            rr.innerHTML="<tr><td>"+company+"</td>\n<td>"+result+"</td></tr>";
         }
     </script>
     <nav class="green" role="navigation">
@@ -50,14 +52,15 @@
             <h1 class="head center green-text accent-1" id="low">안전</h1>
             <h1 class="head center blue-text accent-1" id="med">보통</h1>
             <h1 class="head center red-text accent-1" id="high">위험</h1>
-            <table class="highlight">
+            <table class="responsive-table highlight">
                 <thead>
                 <tr>
                     <th>언론사</th>
                     <th>뉴스</th>
                 </tr>
                 </thead>
-
+                <tr>
+                </tr>
                 <tbody id="result">
                 </tbody>
             </table>
@@ -70,25 +73,54 @@
 </head>
 <body>
 <!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script src="js/materialize.js"></script>
 <script src="js/init.js"></script>
-<script type="text/javascript">
+<script type="text/javascript" language="javascript">
+    function search(keywords){
+        for(key in keywords){
 
-   $(document).ready( function(){
-       $.ajax({
-           type:"POST",
-           url:"",
-           dataType:"json",
-           success: function(json){
-               //
-           },
-           error: function(xhr,status,error){
-               alert(error);
-           }
-       });
-   });
+        }
+    }
+    function search_(key){
+        $.ajax({
+            type:"GET",
+            url:"http://125.188.94.150:8080/news/"+key,
+            dataType:"json",
+            async:true,
+            success: function(json){
+                $.each(json,function(idx,row){
 
+                    add(JSON.stringify(json[idx].company),JSON.stringify(json[idx].title));
+                });
+            },
+            error: function(a,b,error){
+                alert(a.responseText);
+            },
+            done: function(){
+            }
+        });
+    }
+    $(document).ready( function(){
+        $.ajax({
+            type:"GET",
+            url:"http://125.188.94.150:8080/news/코로나",
+            dataType:"json",
+            async:true,
+            success: function(json){
+                    $.each(json,function(idx,row){
+
+                        add(JSON.stringify(json[idx].company),JSON.stringify(json[idx].title));
+                    });
+            },
+            error: function(a,b,error){
+                alert(a.responseText);
+            },
+            done: function(){
+            }
+        });
+    });
 </script>
 </body>
 </html>

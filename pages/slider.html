@@ -14,7 +14,8 @@
         st = new Array(0,0,0,0,0,0);
         window.onload = function(){
             document.getElementById("result").hidden = true;
-
+            document.getElementById("showresult").hidden = true;
+            document.getElementById("resultlabel").hidden = true;
         }
         function next(){
             $('.slider').slider('next');
@@ -192,13 +193,13 @@
                             <form action="#">
                                 <p>
                                     <label>
-                                        <input name="g1" radio onclick="next();stop();set(5,1);showResult()" type="radio" />
+                                        <input name="g1" radio onclick="next();stop();set(5,-1);showResult()" type="radio" />
                                         <span>네</span>
                                     </label>
                                 </p>
                                 <p>
                                     <label>
-                                        <input name="g1" type="radio" radio onclick="next();stop();set(5,-1);showResult()" />
+                                        <input name="g1" type="radio" radio onclick="next();stop();set(5,1);showResult()" />
                                         <span>아니오</span>
                                     </label>
                                 </p>
@@ -210,7 +211,7 @@
                         <div class="caption left-align">
                             <h2 class="blue-text text-accent-1 ">테스트가 끝났습니다</h2>
                             <h4 class="red-text text-accent-2" id="resultlabel">...</h4>
-                          <a href="./result.html" button onclick="handOver()" id="showresult" class="btn-large waves-effect">검사 결과 확인하기</a>
+                          <a href="./result.html" button onclick="handOver();" id="showresult" class="btn-large waves-effect">검사 결과 확인하기</a>
                         </div>
                     </li>
                 </ul>
@@ -236,7 +237,10 @@
         $('.slider').slider();
         $('.slider').slider('pause');
     });
+    function connect(event){
+        event.preventDefault();
 
+    }
 
 </script>
 </body>
