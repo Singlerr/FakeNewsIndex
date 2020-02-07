@@ -11,37 +11,59 @@
 
     <!-- script -->
     <script type="text/javascript">
+        var queryString = decodeURIComponent(window.location.search);
+        queryString = queryString.substring(1);
+        var queries = queryString.split("&");
+       let k = parseInt(queries[0].split('=')[1]);
         window.onload = function(){
             document.getElementById("low").hidden = true;
             document.getElementById("med").hidden = true;
             document.getElementById("high").hidden = true;
-            k = parseInt(localStorage.getItem("m"));
-            alert(k);
+            document.getElementById("lowdes").hidden = true;
+            document.getElementById("medes").hidden = true;
+            document.getElementById("highdes").hidden = true;
             if(k >= 5 && k<=6){
                 document.getElementById("low").hidden = false;
-            }else if(k>=3 && k<=4){
-                document.getElementById("low").hidden = false;
-            }else if(k<=2){
-                document.getElementById("low").hidden = false;
+                document.getElementById("lowdes").hidden = false;
+            }
+            if(k>=3 && k<=4){
+                document.getElementById("med").hidden = false;
+                document.getElementById("medes").hidden = false;
+            }
+            if(k<=2){
+                document.getElementById("high").hidden = false;
+                document.getElementById("highdes").hidden = false;
             }
 
         }
-        function add(company,result){
+      /*  function add(company,result){
             var row = document.all("result").insertRow();
-            rr = row.insertCell();
-            rr.innerHTML="<tr><td>"+company+"</td>\n<td>"+result+"</td></tr>";
+        rr = row.insertCell(row);
+            rr.innerHTML='<tr><td>'+company+'</td><td>'+result+'</td></tr>';
         }
+
+       */
+      function add(company,result){
+            var tableRef = document.getElementById('ta').getElementsByTagName('tbody')[0];
+            var newRow   = tableRef.insertRow();
+            var comp  = newRow.insertCell(0);
+            var titl = newRow.insertCell(1);
+            var comt  = document.createTextNode(company);
+            var tt = document.createTextNode(result);
+            comp.appendChild(comt);
+            titl.appendChild(tt);
+        }
+
     </script>
     <nav class="green" role="navigation">
-        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">NewsHelper</a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="#">Container</a></li>
+                <li><a href="#"></a></li>
             </ul>
 
             <ul id="nav-mobile" class="sidenav">
-                <li><a href="#">Navbar Link</a></li>
+                <li><a href="#"></a></li>
             </ul>
-            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>
     </nav>
     <div class="section no-pad-bot" id="banner">
@@ -50,17 +72,19 @@
             <h3 class="head center black-text">최종 결과</h3>
             <h2 class="head center black-text">가짜  뉴스 위험도는</h2>
             <h1 class="head center green-text accent-1" id="low">안전</h1>
+            <h5 class="head center black-text" id="lowdes">이 뉴스의 가짜뉴스 위험성은 낮습니다.</h5>
             <h1 class="head center blue-text accent-1" id="med">보통</h1>
+            <h5 class="head center black-text" id="meddes">이 뉴스의 가짜뉴스 위험성은 보통입니다. 주의하실 필요가 있습니다.</h5>
             <h1 class="head center red-text accent-1" id="high">위험</h1>
-            <table class="responsive-table highlight">
+            <h5 class="head center black-text" id="highdes">이 뉴스의 가짜뉴스 위험성은 높습니다. 이 뉴스가 가짜뉴스일 확률이 높습니다.</h5>
+            <h6 class="head center red-text accent-1">아래 뉴스는 해당 단어를 포함하는 뉴스들입니다. 2개 이상의 방송사가 이 뉴스를 보도하지 않았다면 가짜뉴스일 확률이 높습니다</h6>
+            <table class="responsive-table highlight" id="ta">
                 <thead>
                 <tr>
                     <th>언론사</th>
                     <th>뉴스</th>
                 </tr>
                 </thead>
-                <tr>
-                </tr>
                 <tbody id="result">
                 </tbody>
             </table>
@@ -78,30 +102,6 @@
 <script src="js/materialize.js"></script>
 <script src="js/init.js"></script>
 <script type="text/javascript" language="javascript">
-    function search(keywords){
-        for(key in keywords){
-
-        }
-    }
-    function search_(key){
-        $.ajax({
-            type:"GET",
-            url:"http://125.188.94.150:8080/news/"+key,
-            dataType:"json",
-            async:true,
-            success: function(json){
-                $.each(json,function(idx,row){
-
-                    add(JSON.stringify(json[idx].company),JSON.stringify(json[idx].title));
-                });
-            },
-            error: function(a,b,error){
-                alert(a.responseText);
-            },
-            done: function(){
-            }
-        });
-    }
     $(document).ready( function(){
         $.ajax({
             type:"GET",
@@ -110,12 +110,11 @@
             async:true,
             success: function(json){
                     $.each(json,function(idx,row){
-
-                        add(JSON.stringify(json[idx].company),JSON.stringify(json[idx].title));
+                        add(json[idx].company,json[idx].title);
                     });
             },
             error: function(a,b,error){
-                alert(a.responseText);
+                alert("일시적인 오류가 발생했습니다.");
             },
             done: function(){
             }
