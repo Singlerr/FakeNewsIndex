@@ -11,10 +11,8 @@
 
     <!-- script -->
     <script type="text/javascript">
-        var queryString = decodeURIComponent(window.location.search);
-        queryString = queryString.substring(1);
-        var queries = queryString.split("&");
-       let k = parseInt(queries[0].split('=')[1]);
+        queries = getUrlParams();
+        let k = queries.k;
         window.onload = function(){
             document.getElementById("low").hidden = true;
             document.getElementById("med").hidden = true;
@@ -36,6 +34,7 @@
             }
 
         }
+
       /*  function add(company,result){
             var row = document.all("result").insertRow();
         rr = row.insertCell(row);
@@ -53,7 +52,11 @@
             comp.appendChild(comt);
             titl.appendChild(tt);
         }
-
+        function getUrlParams() {
+            var params = {};
+            window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) { params[key] = value; });
+            return params;
+        }
     </script>
     <nav class="green" role="navigation">
         <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">NewsHelper</a>
@@ -102,24 +105,25 @@
 <script src="js/materialize.js"></script>
 <script src="js/init.js"></script>
 <script type="text/javascript" language="javascript">
-    $(document).ready( function(){
-        $.ajax({
-            type:"GET",
-            url:"http://125.188.94.150:8080/news/코로나",
-            dataType:"json",
-            async:true,
-            success: function(json){
-                    $.each(json,function(idx,row){
-                        add(json[idx].company,json[idx].title);
-                    });
-            },
-            error: function(a,b,error){
-                alert("일시적인 오류가 발생했습니다.");
-            },
-            done: function(){
-            }
-        });
-    });
+     $(document).ready(function(){
+         $.ajax({
+             type:"GET",
+             url:"http://125.188.94.150:8080/news/"+queries.key,
+             dataType:"json",
+             async:true,
+             success: function(json){
+                 $.each(json,function(idx,row){
+                     add(json[idx].company,json[idx].title);
+                 });
+             },
+             error: function(a,b,error){
+                 alert("일시적인 오류가 발생했습니다.");
+             },
+             done: function(){
+             }
+         });
+     })
+
 </script>
 </body>
 </html>

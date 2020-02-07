@@ -42,7 +42,11 @@
                 rl.hidden = true;
             }
         }
-     
+        function getUrlParams() {
+            var params = {};
+            window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) { params[key] = value; });
+            return params;
+        }
         function handOver(){
            var k = 0;
             for(var i = 0;i<st.length;i++){
@@ -57,7 +61,8 @@
                 }
             }
             if(k == 0) {
-                var queryString = "?k=" + l;
+                query = getUrlParams()
+                var queryString = "?k=" + l+"&key="+query.key;
                 window.location.href = "result.html" + queryString;
             }
 

@@ -4,6 +4,8 @@
     <list default="true" id="361f9371-4748-4587-9ffc-fa21da860927" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/slider.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/slider.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +86,7 @@
       <workItem from="1580821744544" duration="8196000" />
       <workItem from="1580908445972" duration="6874000" />
       <workItem from="1580998203540" duration="3643000" />
-      <workItem from="1581083118547" duration="2205000" />
+      <workItem from="1581083118547" duration="3341000" />
     </task>
     <servers />
   </component>
@@ -104,9 +106,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="618" y="170" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1579703134827" />
-    <state x="1245" y="237" width="672" height="678" key="search.everywhere.popup" timestamp="1580999971764">
+    <state x="1245" y="237" width="672" height="678" key="search.everywhere.popup" timestamp="1581086039866">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1245" y="237" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1580999971764" />
+    <state x="1245" y="237" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1581086039866" />
   </component>
 </project>
