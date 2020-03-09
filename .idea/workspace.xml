@@ -4,6 +4,8 @@
     <list default="true" id="361f9371-4748-4587-9ffc-fa21da860927" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/slider.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/slider.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,12 +38,12 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\유서웅\WebstormProjects\Web" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\유서웅\WebstormProjects\Web\pages\imgs" />
       <recent name="C:\Users\유서웅\WebstormProjects\Web\pages" />
-      <recent name="C:\Users\유서웅\WebstormProjects\Web" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\유서웅\WebstormProjects\Web" />
     </key>
   </component>
@@ -88,6 +90,12 @@
       <workItem from="1581083118547" duration="3835000" />
       <workItem from="1581170590054" duration="3598000" />
       <workItem from="1581254211813" duration="1980000" />
+      <workItem from="1582553161286" duration="44000" />
+      <workItem from="1582640463041" duration="1351000" />
+      <workItem from="1582722623799" duration="1181000" />
+      <workItem from="1582724808984" duration="12000" />
+      <workItem from="1583040911239" duration="931000" />
+      <workItem from="1583152464439" duration="5175000" />
     </task>
     <servers />
   </component>
@@ -107,9 +115,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="618" y="170" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1579703134827" />
-    <state x="1245" y="237" width="672" height="678" key="search.everywhere.popup" timestamp="1581086039866">
+    <state x="1245" y="237" width="672" height="678" key="search.everywhere.popup" timestamp="1583156668550">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1245" y="237" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1581086039866" />
+    <state x="1245" y="237" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583156668550" />
   </component>
 </project>
